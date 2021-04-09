@@ -75,10 +75,19 @@ char *hashTableSearch(hashTable *table, char *key) {
 void hashTableDelete(hashTable *table, char *key) {
   uint32_t index = hash_function(key);
   hashNode *current_node = table->hashArray[index];
-  while (strcmp(current_node->key, key) != 0) {
-    current_node = current_node->next;
+  // hashArray has only one node
+  if (current_node != NULL && current_node->next == NULL) {
+    if (strcmp(current_node->key, key) == 0) {
+      free_hash_node(current_node);
+    }
   }
-  if (current_node != NULL) {
-    free_hash_node(current_node);
+  // hashArray has multiple nodes
+  while (current_node != NULL && current_node->next != NULL) {
+    if (strcmp(current_node->next->key, key) == 0) {
+      hashNode *tmp_node = current_node->next->next;
+      free_hash_node(current_node->next);
+      current_node->next = tmp_node;
+    }
+    current_node = current_node->next;
   }
 }
