@@ -1,0 +1,6 @@
+cc_library(
+    name = "hash_table",
+    srcs = ["hash_table.c"],
+    hdrs = ["hash_table.h"],
+    visibility = ["//visibility:public"],
+)
