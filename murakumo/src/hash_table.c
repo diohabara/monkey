@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TABLE_SIZE 2000;
+#define TABLE_SIZE 2000
 
 uint32_t hash_function(char *key) {
   uint32_t hashed_val = 0;
@@ -39,10 +39,19 @@ void free_hash_node(hashNode *node) {
   free(node);
 }
 
+void free_list(hashNode *node) {
+  hashNode *current_node;
+  while (node != NULL) {
+    current_node = node;
+    node = node->next;
+    free_hash_node(current_node);
+  }
+}
+
 void free_table(hashTable *table) {
   for (size_t i = 0; i < table->size; i++) {
     if (table->hashArray[i]) {
-      free(table->hashArray[i]);
+      free_list(table->hashArray[i]);
     }
   }
   free(table->hashArray);
@@ -63,13 +72,13 @@ void hashTableInsert(hashTable *table, char *key, char *value) {
 char *hashTableSearch(hashTable *table, char *key) {
   uint32_t index = hash_function(key);
   hashNode *current_node = table->hashArray[index];
+  if (current_node == NULL) {
+    return NULL;
+  }
   while (strcmp(current_node->key, key) != 0) {
     current_node = current_node->next;
   }
-  if (current_node != NULL) {
-    return current_node->value;
-  }
-  return NULL;
+  return current_node->value;
 }
 
 void hashTableDelete(hashTable *table, char *key) {
