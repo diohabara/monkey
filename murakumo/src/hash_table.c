@@ -6,6 +6,7 @@
 
 #define TABLE_SIZE 2000
 
+/* distribution rate is intentional to make its implementation easier */
 uint32_t hash_function(char *key) {
   uint32_t hashed_val = 0;
   for (size_t i = 0; key[i]; i++) {
