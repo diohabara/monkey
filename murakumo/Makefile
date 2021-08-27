@@ -1,5 +1,5 @@
 CC := gcc
-# CFLAGS := -Wall -Wextra -Werror -Wno-unused-parameter -Wno-unused-function -g
+CFLAGS := -Wall -Wextra -Werror -Wno-unused-parameter -Wno-unused-function -g
 SOURCES = $(wildcard *.c)
 EXCES = $(SOURCES:%.c=%.o)
 DEPS = $(wildcard *.h)
