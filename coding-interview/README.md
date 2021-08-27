@@ -1,6 +1,6 @@
 # Coding-interview
 
-Algorithms I implements for coding interviews.
+Algorithms implementations for coding interviews.
 
 ## setup
 
