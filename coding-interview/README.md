@@ -22,4 +22,4 @@ poetry run pytest
 
 ## contents
 
-- [quick sort](./quicksort.py)
+- [quick sort](./test_quicksort.py)
