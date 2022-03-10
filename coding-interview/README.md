@@ -23,3 +23,4 @@ poetry run pytest
 ## contents
 
 - [quick sort](./test_quicksort.py)
+- [heap](./test_heap.py)
