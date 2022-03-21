@@ -2,25 +2,27 @@
 
 Algorithms implementations for coding interviews.
 
-## setup
+## Development
+
+### Setup
 
 ```sh
 pyenv install && poetry install
 ```
 
-## lint & format
+### Lint & Format
 
 ```sh
 poetry run pysen run lint && poetry run pysen run format
 ```
 
-## test
+### Test
 
 ```sh
 poetry run pytest
 ```
 
-## contents
+## Contents
 
 ### Sorting
 
