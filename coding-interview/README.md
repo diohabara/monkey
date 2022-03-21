@@ -24,3 +24,4 @@ poetry run pytest
 
 - [quick sort](./test_quicksort.py)
 - [heap](./test_heap.py)
+- [topological sort](./test_topological_sort.py)
