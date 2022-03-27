@@ -24,9 +24,9 @@ poetry run pytest
 
 ## Contents
 
-### Sorting
+### Brute Force
 
-- [quick sort](./test_quicksort.py)
+- [brute force using bit manipulation](./test_bit_brute_force.py)
 
 ### Recursion/Divide and Conquer
 
@@ -46,7 +46,13 @@ poetry run pytest
 
 - [topological sort](./test_topological_sort.py)
 
+### Sorting
+
+- [quick sort](./test_quicksort.py)
+
 ### Union-Find
+
+- [disjoint set](./test_disjoint_set.py)
 
 ### Shortest Path
 
