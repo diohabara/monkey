@@ -21,7 +21,7 @@ def topological_sort(graph: Dict[int, List[int]]) -> List[int]:
 
 
 def test_topological_sort() -> None:
-    dependency_graph1: Dict[int, List] = {
+    dependency_graph1: Dict[int, List[int]] = {
         0: [5],
         1: [3, 6],
         2: [5, 7],
@@ -34,7 +34,7 @@ def test_topological_sort() -> None:
     expected1 = [4, 1, 2, 3, 6, 7, 0, 5]
     achieved1 = topological_sort(dependency_graph1)
     assert expected1 == achieved1
-    dependency_graph2: Dict[int, List] = {
+    dependency_graph2: Dict[int, List[int]] = {
         0: [],
         1: [],
         2: [3],

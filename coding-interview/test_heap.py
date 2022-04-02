@@ -1,6 +1,9 @@
+from typing import List
+
+
 class Heap:  # max heap
-    def __init__(self):
-        self.heap: list[int] = []
+    def __init__(self) -> None:
+        self.heap: List[int] = []
 
     def push(self, x: int) -> None:
         self.heap.append(x)
