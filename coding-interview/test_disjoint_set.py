@@ -16,9 +16,8 @@ class UnionFind:
         """
         if self.parent[x] == -1:
             return x
-        else:
-            self.parent[x] = self.root(self.parent[x])
-            return self.parent[x]
+        self.parent[x] = self.root(self.parent[x])
+        return self.parent[x]
 
     # check if x and y are in the same group
     def is_connected(self, x: int, y: int) -> bool:
@@ -46,6 +45,14 @@ class UnionFind:
         self.rank[root_x] += self.rank[root_y]
         return True
 
+    # the size of the group that contains x
+    def size(self, x: int) -> int:
+        """
+        Time: O(1)
+        Space: O(1)
+        """
+        return self.rank[self.root(x)]
+
 
 def test_disjoint_set() -> None:
     uf = UnionFind(7)
@@ -54,5 +61,6 @@ def test_disjoint_set() -> None:
     uf.unite(5, 6)
     assert uf.is_connected(1, 3)
     assert not uf.is_connected(2, 5)
+    assert uf.size(1) == 3
     uf.unite(1, 6)
     assert uf.is_connected(2, 5)
