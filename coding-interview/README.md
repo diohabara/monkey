@@ -22,11 +22,20 @@ poetry run pysen run lint && poetry run pysen run format
 poetry run pytest
 ```
 
-## Contents
+## Data Structures
+
+- [Stack](./test_stack.py)
+- [Queue](./test_queue.py)
+- [Heap](./test_heap.py)
+- [Linked List](./test_linked_list.py)
+- [Hash Table](./test_hash_table.py)
+- [Disjoint Set](./test_disjoint_set.py)
+
+## Algorithms
 
 ### Brute Force
 
-- [brute force using bit manipulation](./test_bit_brute_force.py)
+- [Brute Force Using Bit Manipulation](./test_bit_brute_force.py)
 
 ### Recursion/Divide and Conquer
 
@@ -34,25 +43,24 @@ poetry run pytest
 
 ### Binary Search
 
+- [Binary Search](./test_binary_search.py)
+
 ### Greedy
 
 ### Array/Linked List/Hash Table
-
-- [heap](./test_heap.py)
 
 ### Stack/Queue
 
 ### Graph/Tree
 
-- [topological sort](./test_topological_sort.py)
+- [Topological Sort](./test_topological_sort.py)
 
 ### Sorting
 
-- [quick sort](./test_quicksort.py)
+- [Quick Sort](./test_quicksort.py)
+- [Merge Sort](./test_mergesort.py)
 
 ### Union-Find
-
-- [disjoint set](./test_disjoint_set.py)
 
 ### Shortest Path
 
