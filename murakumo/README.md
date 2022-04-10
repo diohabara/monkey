@@ -24,7 +24,7 @@
 
 ## 実装
 
-- [HashTable](./src)
+- [HashTable](./hash_table.c)
 
 ```bash
 clang-format -i *.c *.h # format
