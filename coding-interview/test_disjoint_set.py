@@ -5,7 +5,7 @@ class UnionFind:
         Time: O(N)
         Space: O(N)
         """
-        self.parent = [-1] * n  # parent, if not set, then -1
+        self.parent = [-1] * n  # root node. if not set, then -1
         self.rank = [1] * n  # how big the group is
 
     # return x's group, and compress the path
@@ -38,7 +38,7 @@ class UnionFind:
         # already connected
         if root_x == root_y:
             return False
-        # union by rank(y should be smaller)
+        # union by rank(x should be bigger)
         if self.rank[root_x] < self.rank[root_y]:
             root_x, root_y = root_y, root_x
         self.parent[root_y] = root_x
