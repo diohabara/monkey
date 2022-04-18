@@ -2,7 +2,7 @@ from typing import List
 
 
 class Stack:
-    def __init__(self):
+    def __init__(self) -> None:
         self._items: List[int] = []
         self._size = 0
 

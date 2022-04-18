@@ -4,4 +4,4 @@ class HashTable:
 
 
 def test_hash_table() -> None:
-    table = HashTable()
+    pass

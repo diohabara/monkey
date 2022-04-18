@@ -1,4 +1,3 @@
-from operator import index
 from random import shuffle
 from typing import List
 
@@ -12,24 +11,24 @@ def mergesort(array: List[int]) -> None:
     right = array[mid:]
     mergesort(left)
     mergesort(right)
-    l, r, current = 0, 0, 0
-    while l < len(left) and r < len(right):
-        if left[l] < right[r]:
-            array[current] = left[l]
+    left_p, right_p, current = 0, 0, 0
+    while left_p < len(left) and right_p < len(right):
+        if left[left_p] < right[right_p]:
+            array[current] = left[left_p]
             current += 1
-            l += 1
+            left_p += 1
         else:
-            array[current] = right[r]
+            array[current] = right[right_p]
             current += 1
-            r += 1
-    while l < len(left):
-        array[current] = left[l]
+            right_p += 1
+    while left_p < len(left):
+        array[current] = left[left_p]
         current += 1
-        l += 1
-    while r < len(right):
-        array[current] = right[r]
+        left_p += 1
+    while right_p < len(right):
+        array[current] = right[right_p]
         current += 1
-        r += 1
+        right_p += 1
 
 
 def test_mergesort() -> None:

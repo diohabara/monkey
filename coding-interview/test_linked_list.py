@@ -1,22 +1,26 @@
+from typing import Optional
+
+
 class Node:
-    def __init__(self, x: int):
+    def __init__(self, x: int) -> None:
         self.val = x
-        self.next = None
+        self.next: Optional[Node] = None
 
 
 class LinkedList:
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Initialize your data structure here.
         Time: O(1)
         Space: O(1)
         """
-        self.head = None
+        self.head: Optional[Node] = None
         self.size = 0
 
     def get(self, index: int) -> int:
         """
-        Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+        Get the value of the index-th node in the linked list.
+        If the index is invalid, return -1.
         Time: O(N)
         Space: O(1)
         """
@@ -24,7 +28,11 @@ class LinkedList:
             return -1
         cur = self.head
         for _ in range(index):
+            if not cur:
+                raise Exception("Error: accessing None")
             cur = cur.next
+        if not cur:
+            raise Exception("Error: accessing None")
         return cur.val
 
     def add_at_head(self, val: int) -> None:
@@ -47,7 +55,8 @@ class LinkedList:
     def add_at_index(self, index: int, val: int) -> None:
         """
         Add a node of value val before the index-th node in the linked list.
-        If index equals to the length of linked list, the node will be appended to the end of linked list.
+        If index equals to the length of linked list,
+            the node will be appended to the end of linked list.
         If index is greater than the length, the node will not be inserted.
         Time: O(N)
         Space: O(1)
@@ -63,7 +72,11 @@ class LinkedList:
             self.head = new_node
         else:
             for _ in range(index - 1):
+                if not cur:
+                    raise Exception("Error: accessing None")
                 cur = cur.next
+            if not cur:
+                raise Exception("Error: accessing None")
             # new, cur -> next
             new_node.next = cur.next  # new -> next
             cur.next = new_node  # cur -> new -> next
@@ -80,10 +93,16 @@ class LinkedList:
 
         cur = self.head
         if index == 0:
+            if not self.head:
+                raise Exception("Error: accessing None")
             self.head = self.head.next
         else:
             for _ in range(index - 1):
+                if not cur:
+                    raise Exception("Error: accessing None")
                 cur = cur.next
+            if not cur or not cur.next:
+                raise Exception("Error: accessing None")
             cur.next = cur.next.next
         self.size -= 1
 
